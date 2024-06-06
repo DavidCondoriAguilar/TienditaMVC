@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdtienditaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="codcat" />
+    </Key>
+    <Property Name="codcat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomcat" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estcat" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="producto" Relationship="Self.FK__producto__codcat__398D8EEE" FromRole="categoria" ToRole="producto" />
+  </EntityType>
+  <EntityType Name="distrito">
+    <Key>
+      <PropertyRef Name="coddis" />
+    </Key>
+    <Property Name="coddis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomdis" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estdis" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="empleado" Relationship="Self.FK__empleado__coddis__403A8C7D" FromRole="distrito" ToRole="empleado" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="codemp" />
+    </Key>
+    <Property Name="codemp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomemp" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apepemp" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apememp" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="docemp" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecemp" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="diremp" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telemp" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="celemp" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="coremp" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sexemp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuemp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="claemp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estemp" Type="Boolean" Nullable="false" />
+    <Property Name="coddis" Type="Int32" Nullable="false" />
+    <Property Name="codrol" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="distrito" Relationship="Self.FK__empleado__coddis__403A8C7D" FromRole="empleado" ToRole="distrito" />
+    <NavigationProperty Name="rol" Relationship="Self.FK__empleado__codrol__412EB0B6" FromRole="empleado" ToRole="rol" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="codpro" />
+    </Key>
+    <Property Name="codpro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nompro" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="despro" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prepro" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="canpro" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="estpro" Type="Boolean" Nullable="false" />
+    <Property Name="codcat" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="categoria" Relationship="Self.FK__producto__codcat__398D8EEE" FromRole="producto" ToRole="categoria" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="codrol" />
+    </Key>
+    <Property Name="codrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomrol" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estrol" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="empleado" Relationship="Self.FK__empleado__codrol__412EB0B6" FromRole="rol" ToRole="empleado" />
+  </EntityType>
+  <Association Name="FK__producto__codcat__398D8EEE">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="codcat" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="codcat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleado__coddis__403A8C7D">
+    <End Role="distrito" Type="Self.distrito" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="distrito">
+        <PropertyRef Name="coddis" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="coddis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleado__codrol__412EB0B6">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="codrol" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="codrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdtienditaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categoria" EntityType="Self.categoria" />
+    <EntitySet Name="distrito" EntityType="Self.distrito" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" />
+    <EntitySet Name="producto" EntityType="Self.producto" />
+    <EntitySet Name="rol" EntityType="Self.rol" />
+    <AssociationSet Name="FK__producto__codcat__398D8EEE" Association="Self.FK__producto__codcat__398D8EEE">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleado__coddis__403A8C7D" Association="Self.FK__empleado__coddis__403A8C7D">
+      <End Role="distrito" EntitySet="distrito" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleado__codrol__412EB0B6" Association="Self.FK__empleado__codrol__412EB0B6">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

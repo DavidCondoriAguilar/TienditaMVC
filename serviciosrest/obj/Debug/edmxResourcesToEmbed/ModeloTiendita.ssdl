@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdtienditaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="codcat" />
+    </Key>
+    <Property Name="codcat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomcat" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="estcat" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="distrito">
+    <Key>
+      <PropertyRef Name="coddis" />
+    </Key>
+    <Property Name="coddis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomdis" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="estdis" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="codemp" />
+    </Key>
+    <Property Name="codemp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomemp" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="apepemp" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="apememp" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="docemp" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="fecemp" Type="date" Nullable="false" />
+    <Property Name="diremp" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="telemp" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="celemp" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="coremp" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="sexemp" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="usuemp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="claemp" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="estemp" Type="bit" Nullable="false" />
+    <Property Name="coddis" Type="int" Nullable="false" />
+    <Property Name="codrol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="codpro" />
+    </Key>
+    <Property Name="codpro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nompro" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="despro" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="prepro" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="canpro" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="estpro" Type="bit" Nullable="false" />
+    <Property Name="codcat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="codrol" />
+    </Key>
+    <Property Name="codrol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomrol" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="estrol" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__empleado__coddis__403A8C7D">
+    <End Role="distrito" Type="Self.distrito" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="distrito">
+        <PropertyRef Name="coddis" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="coddis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleado__codrol__412EB0B6">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="codrol" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="codrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__codcat__398D8EEE">
+    <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="codcat" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="codcat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdtienditaModelStoreContainer">
+    <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="distrito" EntityType="Self.distrito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__empleado__coddis__403A8C7D" Association="Self.FK__empleado__coddis__403A8C7D">
+      <End Role="distrito" EntitySet="distrito" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleado__codrol__412EB0B6" Association="Self.FK__empleado__codrol__412EB0B6">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__codcat__398D8EEE" Association="Self.FK__producto__codcat__398D8EEE">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

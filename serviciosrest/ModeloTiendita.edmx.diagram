@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="791616bb9a344de98823c5143f63f168" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="bdtienditaModel.categoria" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdtienditaModel.distrito" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdtienditaModel.empleado" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdtienditaModel.producto" Width="1.5" PointX="8" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdtienditaModel.rol" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="bdtienditaModel.FK__producto__codcat__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="bdtienditaModel.FK__empleado__coddis__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="bdtienditaModel.FK__empleado__codrol__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdtienditaModelStoreContainer" CdmEntityContainer="bdtienditaEntities">
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="bdtienditaModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="codcat" ColumnName="codcat" />
+          <ScalarProperty Name="nomcat" ColumnName="nomcat" />
+          <ScalarProperty Name="estcat" ColumnName="estcat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="distrito">
+      <EntityTypeMapping TypeName="bdtienditaModel.distrito">
+        <MappingFragment StoreEntitySet="distrito">
+          <ScalarProperty Name="coddis" ColumnName="coddis" />
+          <ScalarProperty Name="nomdis" ColumnName="nomdis" />
+          <ScalarProperty Name="estdis" ColumnName="estdis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="bdtienditaModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="codemp" ColumnName="codemp" />
+          <ScalarProperty Name="nomemp" ColumnName="nomemp" />
+          <ScalarProperty Name="apepemp" ColumnName="apepemp" />
+          <ScalarProperty Name="apememp" ColumnName="apememp" />
+          <ScalarProperty Name="docemp" ColumnName="docemp" />
+          <ScalarProperty Name="fecemp" ColumnName="fecemp" />
+          <ScalarProperty Name="diremp" ColumnName="diremp" />
+          <ScalarProperty Name="telemp" ColumnName="telemp" />
+          <ScalarProperty Name="celemp" ColumnName="celemp" />
+          <ScalarProperty Name="coremp" ColumnName="coremp" />
+          <ScalarProperty Name="sexemp" ColumnName="sexemp" />
+          <ScalarProperty Name="usuemp" ColumnName="usuemp" />
+          <ScalarProperty Name="claemp" ColumnName="claemp" />
+          <ScalarProperty Name="estemp" ColumnName="estemp" />
+          <ScalarProperty Name="coddis" ColumnName="coddis" />
+          <ScalarProperty Name="codrol" ColumnName="codrol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producto">
+      <EntityTypeMapping TypeName="bdtienditaModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="nompro" ColumnName="nompro" />
+          <ScalarProperty Name="despro" ColumnName="despro" />
+          <ScalarProperty Name="prepro" ColumnName="prepro" />
+          <ScalarProperty Name="canpro" ColumnName="canpro" />
+          <ScalarProperty Name="estpro" ColumnName="estpro" />
+          <ScalarProperty Name="codcat" ColumnName="codcat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="bdtienditaModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="codrol" ColumnName="codrol" />
+          <ScalarProperty Name="nomrol" ColumnName="nomrol" />
+          <ScalarProperty Name="estrol" ColumnName="estrol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
