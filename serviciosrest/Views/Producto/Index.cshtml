@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<serviciosrest.Models.ProductoModels>
+
+@{
+    ViewBag.Title = "Productos";
+}
+
+<h2>Productos</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Producto", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nompro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.despro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prepro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.canpro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estpro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codcat)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nompro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.despro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prepro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.canpro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estpro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codcat)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.codpro }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.codpro }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.codpro })
+            </td>
+        </tr>
+    }
+
+</table>

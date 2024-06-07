@@ -1,0 +1,55 @@
+﻿@model serviciosrest.Models.ProductoModels
+
+@{
+    ViewBag.Title = "Detalles del Producto";
+}
+
+<h2>Detalles del Producto</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nompro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nompro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.despro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.despro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.prepro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prepro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.canpro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.canpro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.estpro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.estpro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.codcat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.codcat)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.codpro }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

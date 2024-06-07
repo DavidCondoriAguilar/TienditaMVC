@@ -1,0 +1,30 @@
+﻿@model serviciosrest.Models.CategoriaModels
+
+@{
+    ViewBag.Title = "Eliminar Categoría";
+}
+
+<h2>Eliminar Categoría</h2>
+
+<h3>¿Está seguro que desea eliminar esta categoría?</h3>
+<div>
+    <h4>Categoría</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Cancelar", "Index")
+        </div>
+    }
+</div>

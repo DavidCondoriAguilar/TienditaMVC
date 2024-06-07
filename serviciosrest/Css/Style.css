@@ -1,0 +1,5 @@
+﻿.nav li a:hover {
+    color: #fff; /* Cambia el color de texto al hacer hover */
+    background-color: #007bff; /* Cambia el color de fondo al hacer hover */
+    border-radius: 4px; /* Agrega bordes redondeados al hacer hover */
+}

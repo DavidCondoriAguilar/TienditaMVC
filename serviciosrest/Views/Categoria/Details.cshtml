@@ -1,0 +1,25 @@
+﻿@model serviciosrest.Models.CategoriaModels
+
+@{
+    ViewBag.Title = "Detalles de la Categoría";
+}
+
+<h2>Detalles de la Categoría</h2>
+
+<div>
+    <h4>Categoría</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>
